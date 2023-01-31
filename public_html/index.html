@@ -9,13 +9,13 @@
 <body>
 	<h1>Contact Manager</h1>
 
-  <button id="openSignInButton" onclick="ShowSignInForm()">Sign In</button>
+	<button id="openSignInButton" onclick="ShowSignInForm()">Sign In</button>
 	<button id="openResistrationButton" onclick="ShowRegistrationForm()">Register</button>
 	<form id="sign-in" action="/action_page.php" style="display:none;">
 		<label for="user">Username:</label><br>
 		<input type="text" id="user" name="user" placeholder="Email"><br>
 		<label for="pass">Password:</label><br>
-		<input type="text" id="pass" name="pass"><br>
+		<input type="password" id="pass" name="pass"><br>
 		<input type="submit" value="Submit">
 	</form>
 
@@ -25,7 +25,7 @@
 		<label for="pass">Password:</label><br>
 		<input type="text" id="pass" name="pass"><br>
 		<label for="confirm">Confirm Password:</label><br>
-		<input type="text" id="confirm" name="confirm"><br>
+		<input type="password" id="confirm" name="confirm"><br>
 		<input type="submit" value="Submit">
 	</form>
 
