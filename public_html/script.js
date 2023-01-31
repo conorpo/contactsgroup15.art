@@ -1,11 +1,17 @@
-function ShowSignInForm()
-{
+function ShowSignInForm() {
   var T = document.getElementById("sign-in");
-  T.style.display = "block";
+  if (T.style.display == "none") {
+    T.style.display = "block";
+  } else {
+    T.style.display = "none";
+  }
 }
 
-function ShowRegistrationForm()
-{
+function ShowRegistrationForm() {
   var T = document.getElementById("register");
-  T.style.display = "block";
+  if (T.style.display == "none") {
+	T.style.display = "block";
+   } else {
+	T.style.display = "none";
+   }
 }
