@@ -1,8 +1,8 @@
 
 <?php
 
-	$user = $_POST["user"];
-	$pass = $_POST["pass"];
+	$user = $_POST["userSign"];
+	$pass = $_POST["passSign"];
 	
 	echo "Hello, " . $user; 
 	echo "<br>Your password is " . $pass;

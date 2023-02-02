@@ -9,9 +9,24 @@ function ShowSignInForm() {
 
 function ShowRegistrationForm() {
   var T = document.getElementById("register");
+
   if (T.style.display == "none") {
-	T.style.display = "block";
-   } else {
-	T.style.display = "none";
-   }
+    T.style.display = "block";
+  } else {
+    T.style.display = "none";
+  }
+  
+}
+
+function ShowPassTheSame() {
+  var T = document.getElementById("passTheSame");
+  
+  if (
+    document.getElementById("passReg").value !=
+    document.getElementById("confirmReg").value
+  ) {
+    T.style.display = "block";
+  } else {
+    T.style.display = "none";
+  }
 }
