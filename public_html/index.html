@@ -11,7 +11,7 @@
 
 	<button id="openSignInButton" onclick="ShowSignInForm()">Sign In</button>
 	<button id="openResistrationButton" onclick="ShowRegistrationForm()">Register</button>
-	<form id="sign-in" action="/includes/Login.php" method="POST" style="display:none;">
+	<form id="sign-in" action="/Login.php" method="POST" style="display:none;">
 		<label for="userSign">Username:</label><br>
 		<input type="text" id="userSign" name="userSign" placeholder="Email"><br>
 		<label for="passSign">Password:</label><br>
@@ -19,7 +19,7 @@
 		<input type="submit" value="Submit">
 	</form>
 
-	<form id="register" action="/includes/Register.php" method = "POST" style="display:none;">
+	<form id="register" action="/Register.php" method = "POST" style="display:none;">
 		<label for="userReg">Username:</label><br>
 		<input type="text" id="userReg" name="userReg" placeholder="Email"><br>
 
