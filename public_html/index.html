@@ -13,24 +13,24 @@
 	<button id="openResistrationButton" onclick="ShowRegistrationForm()">Register</button>
 	<form id="sign-in" action="/includes/Login.php" method="POST" style="display:none;">
 		<label for="userSign">Username:</label><br>
-		<input type="text" id="userSign" name="user" placeholder="Email"><br>
+		<input type="text" id="userSign" name="userSign" placeholder="Email"><br>
 		<label for="passSign">Password:</label><br>
-		<input type="password" id="passSign" name="pass"><br>
+		<input type="password" id="passSign" name="passSign"><br>
 		<input type="submit" value="Submit">
 	</form>
 
-	<form id="register" action="/includes/Register.php" style="display:none;">
-		
+	<form id="register" action="/includes/Register.php" method = "POST" style="display:none;">
 		<label for="userReg">Username:</label><br>
-		<input type="text" id="userReg" name="user" placeholder="Email"><br>
+		<input type="text" id="userReg" name="userReg" placeholder="Email"><br>
 
 		<label for="passReg">Password:</label><br>
-		<input type="password" id="passReg" name="pass" onkeyup="ShowPassTheSame()"><br>
+		<input type="password" id="passReg" name="passReg" onkeyup="ShowPassTheSame()"><br>
 		<label for="confirmReg">Confirm Password:</label><br>
-		<input type="password" id="confirmReg" name="confirm" onkeyup="ShowPassTheSame()"><br>
-		<label id="passTheSame" style="display:none;">Passwords must be the same</label>
+		<input type="password" id="confirmReg" name="confirmReg" onkeyup="ShowPassTheSame()"><br>
+		
+		<label id="passTheSame" name="passTheSame" style="display:none;">Passwords must be the same</label>
 
-		<input type="submit" value="Submit">
+		<input type="submit" value="Submit" name="submitReg" id="submitReg">
 	</form>
 	
 </body>

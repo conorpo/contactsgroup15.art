@@ -26,7 +26,9 @@ function ShowPassTheSame() {
     document.getElementById("confirmReg").value
   ) {
     T.style.display = "block";
+    document.getElementById("submitReg").disabled = true;
   } else {
     T.style.display = "none";
+    document.getElementById("submitReg").disabled = false;
   }
 }
