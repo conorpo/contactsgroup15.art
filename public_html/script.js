@@ -1,19 +1,22 @@
+let signIn = document.getElementById("sign-in");
+let register = document.getElementById("register");
+
 function ShowSignInForm() {
-  var T = document.getElementById("sign-in");
-  if (T.style.display == "none") {
-    T.style.display = "block";
+  if (signIn.style.display == "none") {
+    signIn.style.display = "block";
+    register.style.display = "none";
   } else {
-    T.style.display = "none";
+    signIn.style.display = "none";
   }
 }
 
 function ShowRegistrationForm() {
-  var T = document.getElementById("register");
 
-  if (T.style.display == "none") {
-    T.style.display = "block";
+  if (register.style.display == "none") {
+    register.style.display = "block";
+    signIn.style.display = "none";
   } else {
-    T.style.display = "none";
+    register.style.display = "none";
   }
   
 }
