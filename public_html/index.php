@@ -91,7 +91,9 @@ session_start();
 			<input type="submit" value="Submit" name="submit_reg">
 		</form>
 
-	<?php } else { ?>
+	<?php } else { 
+		$username = $_SESSION['username'];?>
+		
 		Welcome Back <?php echo $username?>
 		<br><a href="/logout.php">Logout</a>
 	<?php } ?>
