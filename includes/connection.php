@@ -12,8 +12,13 @@ class connection {
         $dbuser = (getenv("DBUSER")  ? getenv("DBUSER") : "main");
         $dbpass = (getenv("DBPASS")  ? getenv("DBPASS") : "");
         $dbname = (getenv("DBNAME")  ? getenv("DBNAME") : "prod");
-        $conn = null;
-        return $conn;
+        $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname); 
 
+        if($conn->connect_error){
+            die("Connection failed: " . $conn->connect_error);
+        }
+        return $conn;
     }
 }
+$conn = connection::instance()->getconnection();
+?>
