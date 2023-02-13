@@ -146,7 +146,7 @@ https://templatemo.com/tm-543-breezed
 
 
 
-    <!-- jQuery -->
+    jQuery
     <script src="assets/js/jquery-2.1.0.min.js"></script>
 
     <!-- Bootstrap -->
@@ -185,6 +185,14 @@ https://templatemo.com/tm-543-breezed
         });
 
     </script>
+
+    <script type="text/javascript">
+        setTimeout(() => {
+        let preloader = document.getElementById('preloader');
+        preloader.style.display = 'none';
+        }, 500);
+    </script>
+    
 
   </body>
 </html>
