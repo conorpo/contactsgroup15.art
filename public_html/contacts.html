@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel="stylesheet" href="contacts.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Open a new dialogue to create a new contact -->
+    <button id="AddNew" onclick="AddNew()">Add New</button>
+    <p></p>
+
+    <!-- Should be hidden until AddNew() is called -->
+    <div class="box" id="addNew"></div>
+
+    <div class="contactBox" id="ContactBox">
+        <div class="box" id="Contact1">
+            <div class="miniBox" id="FirstName1">
+                <label>First Name</label>
+                <br>
+                
+            </div>
+            <div class="miniBox" id="LastName1">
+                
+            </div>
+            <div class="miniBox" id="Email1">
+                
+            </div>
+            <div class="miniBox" id="PhoneNumber1">
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- So here is the main idea: We are going to build a string in JS that creates new boxes inside contactBox -->
+    <!-- Span can take strings in with HTML and change webpages on the fly -->
+    <!-- Right now I am trying to get a good design on ContactBox before we allow the user to create contacts -->
+    
+    <span id="insertHere"></span>
+
+    <script type="contacts.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+.box{
+    height: 130px;
+    border: 1px solid black;
+    max-width:100%;
+    margin: 0;
+    padding: 0;
+    } 
+
+.contactBox{
+    border: 1px solid black;
+    max-width:100%;
+    min-height:80vh;
+    margin: 30px;
+    padding: 10px;
+    } 
