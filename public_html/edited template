@@ -54,7 +54,7 @@
         <div class="Modern-Slider">
           <div class="item">
             <div class="img-fill">
-                <img src="blue-globe.jpg" alt="">
+                <img src="image/blue-globe.jpg" alt="">
                 <div class="text-content">
                   <h3>Welcome To</h3>
                   <h5>Contacts Manager</h5>
