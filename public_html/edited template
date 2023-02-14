@@ -8,31 +8,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
-    integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
 
     <title>Breezed HTML Bootstrap Template</title>
 
-<!--
 
-Breezed Template
-
-https://templatemo.com/tm-543-breezed
-
--->
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
-
-    <link rel="stylesheet" href="assets/css/templatemo-breezed.css">
-
-    <link rel="stylesheet" href="assets/css/owl-carousel.css">
-
-    <link rel="stylesheet" href="assets/css/lightbox.css">
-    
     <link rel="stylesheet" href="style.css">
-
     <script src="script.js"></script>
 
     </head>
@@ -109,41 +90,6 @@ https://templatemo.com/tm-543-breezed
           <button type="button" class="btn cancel" onclick="CloseRegistrationForm()">Close</button>
   	     </form>
     </div>
-
-    <!-- ***** Main Banner Area End ***** -->
-
-    <!-- ***** About Area Starts ***** -->
-
-    <!-- ***** About Area Ends ***** -->
-
-    <!-- ***** Features Big Item Start ***** -->
-
-    <!-- ***** Features Big Item End ***** -->
-
-    <!-- ***** Features Big Item Start ***** -->
-
-    <!-- ***** Features Big Item End ***** -->
-
-
-    <!-- ***** Projects Area Starts ***** -->
-
-    <!-- ***** Contact Us Area Ends ***** -->
-
-    <!-- ***** Footer Start ***** -->
-    <!--<footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-xs-12">
-                    <div class="left-text-content">
-                        <p>Group 15 Small Project</p>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xs-12">
-                </div>
-            </div>
-        </div>
-    </footer> -->
-
 
 
     jQuery
