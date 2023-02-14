@@ -33,7 +33,7 @@ https://templatemo.com/tm-543-breezed
     
     <link rel="stylesheet" href="style.css">
 
-    <script src="assets/js/script.js"></script>
+    <script src="script.js"></script>
 
     </head>
 
@@ -77,8 +77,8 @@ https://templatemo.com/tm-543-breezed
                 <div class="text-content">
                   <h3>Welcome To</h3>
                   <h5>Contacts Manager</h5>
-                  <button class="main-stroked-button" onclick="ShowSignInForm()">Sign In</button>
-                  <button class="main-filled-button" onclick="ShowRegistrationForm()">Register</button>
+                  <button class="main-stroked-button" onclick="ShowSignInForm(), CloseRegistrationForm()">Sign In</button>
+                  <button class="main-filled-button" onclick="ShowRegistrationForm(), CloseSignInForm()">Register</button>
                 </div>
             </div>
           </div>
@@ -190,9 +190,8 @@ https://templatemo.com/tm-543-breezed
         setTimeout(() => {
         let preloader = document.getElementById('preloader');
         preloader.style.display = 'none';
-        }, 500);
+        }, 200);
     </script>
-    
 
   </body>
 </html>
