@@ -30,14 +30,10 @@ $contacts = searchContacts($conditions);
     <script src="js/contacts.js" defer></script>
 </head>
 <body class="dashboard-body">
-<<<<<<< HEAD
-        <h1 class="dashboard-title"><?php 
-            echo 'Welcome back <span>' . $username . '</span>';
-=======
+
         <!-- Welcome message -->
         <h1 class="dashboard-title"><?php
-        echo 'Welcome back <span>' . $username . '</span>';
->>>>>>> 04e92fa918886fd23e1b061cd1715e50e5a6b2ec
+            echo 'Welcome back <span>' . $username . '</span>';
         ?></h1>
 
         <!-- Open a new dialogue to create a new contact -->
