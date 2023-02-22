@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap');
+
+:root {
+    --main-color: #ff9355;
+}
+
+body {
+    background-image: url("assets/background.jpg");
+    background-color: #cccccc;
+    font-family: 'Rubik', sans-serif;
+}
+
+/* Login */
+
+.login-body {
+    padding: 20vh 30vw;
+}
+
+.main-banner {
+    font-weight: 500;
+    text-align: center;
+    filter: drop-shadow(1px 1px 2px var(--main-color));
+    color: var(--main-color);
+}
+
+.button-holder {
+    display: flex;
+    width: 20vw;
+    margin-left: 10vw;
+}
+
+.button-holder > button {
+    width: 10vw;
+    height: 3vh;
+    background-color: var(--main-color);
+    margin: 1vh 0.2vw;
+    border: none;
+    border-radius: 2px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.button-holder > button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    font-weight: 300;
+}
+
+.form {
+    display: block;
+    position: absolute;
+    top:40vh;
+    transition: 1s;
+    
+    width: 40vw;
+    opacity: 0.95;
+    background-color: rgba(255, 160, 105, 0.5);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.form > form {
+    font-family: 'Rubik', sans-serif;
+    display: flex;
+}
+
+.form > form > input {
+    background-color: #ffffff;
+    box-sizing: border-box;
+    border-radius: 3px;
+    border: none;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    flex-grow: 1;
+    height: 4vh;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+.form > form > .submit {
+    font-weight: 500;
+    box-shadow: 3px 3px  5px var(--main-color);
+    cursor: pointer;
+}
+
+.invisible {
+    display: none;
+    transform: scale(2);
+}
+
+
+
+/* Dashboard */
+
+.dashboard-title {
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    color: #cccccc;
+}
+
+.dashboard-body {
+    margin: 10vh 10vw;
+}
+
+.contactBox{
+    border: 1px solid black;
+    max-width:100%;
+    min-height:80vh;
+    padding: 10px;
+    background-color: rgb(12, 153, 19);
+    } 
+
+.contactBox{
+    border: 1px solid black;
+    max-width:100%;
+    min-height:80vh;
+    padding: 10px;
+    background-color: rgb(12, 153, 19);
+    } 
+
+.box{
+    border: 1px solid black;
+    height: 130px;
+    /* border: 1px solid black; */
+    max-width:100%;
+    min-width:100%;
+    margin: 0;
+    padding: 0;
+    /* display: inline-block; */
+    background-color: rgb(46, 197, 53);
+    /* white-space: nowrap;  */
+    font-size: 0px;
+    } 
+
+.flex-parent {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    min-height: 60px;
+    background-color: rgb(42, 214, 42);
+}
+
+.flex-child {
+    flex-grow: 4;
+}
+
+.miniBox{
+    display: inline-block;
+    min-width: 20%;
+    white-space: pre;
+    background-color: grey;
+    padding: 0px;
+    margin: 0px;
+    word-wrap: break-word;
+    font-size: 16px;
+}

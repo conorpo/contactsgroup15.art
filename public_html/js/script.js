@@ -1,17 +1,21 @@
-function ShowSignInForm() {
-  document.getElementById("sign in").style.display = "block";
-}
+const loginBox = document.getElementById("login");
+const registerBox = document.getElementById("register");
 
-function CloseSignInForm() {
-  document.getElementById("sign in").style.display = "none";
-}
 
-function ShowRegistrationForm() {
-document.getElementById("register").style.display = "block";
-}
+document.getElementById("login_button").addEventListener("click",(evt) => {
+  ShowForm(loginBox);
+})
+document.getElementById("register_button").addEventListener("click",(evt) => {
+  ShowForm(registerBox);
+})
 
-function CloseRegistrationForm() {
-  document.getElementById("register").style.display = "none";
+function ShowForm(ele) {
+  loginBox.classList.add("invisible");
+  registerBox.classList.add("invisible");
+
+  if(ele){
+    ele.classList.remove("invisible");
+  }
 }
 
 function ShowPassTheSame() {

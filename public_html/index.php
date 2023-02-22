@@ -1,15 +1,7 @@
 <?php include '../includes/connection.php' ?>
 <?php session_start(); ?>
 
-
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
-	<h1>Contact Manager</h1>
-
-	<?php 
+<?php 
 	if (isset($_SESSION['username'])) {
 		header('Location: /dashboard.php');
 	}
@@ -61,36 +53,55 @@
 
 		echo $login_error;
 	}
-	?>
-	
+?>
 
-	<h2>Do not put your real information here!!</h2>
-	<button id="openSignInButton" onclick="ShowSignInForm()">Sign In</button>
-	<button id="openResistrationButton" onclick="ShowRegistrationForm()">Register</button>
-	<form id="sign-in" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="POST" style="display:none;">
-		<label for="username">Username:</label><br>
-		<input type="text" name="username"><br>
-		<label for="passSign">Password:</label><br>
-		<input type="password" name="password"><br>
-		<input type="submit" value="Submit" name="submit_login">
-	</form>
+<!DOCTYPE html>
+<html lang="en">
 
-	<form id="register" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method = "POST" style="display:none;">
-		<label for="username">Username:</label><br>
-		<input type="text" name="username"><br>
+    <head>
 
-		<label for="passReg">Password:</label><br>
-		<input type="password" name="password" onkeyup="ShowPassTheSame()"><br>
-		<label for="confirmReg">Confirm Password:</label><br>
-		<input type="password" name="confirmPass" onkeyup="ShowPassTheSame()"><br>
-		
-		<label id="passTheSame" name="passTheSame" style="display:none;">Passwords must be the same</label>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📞</text></svg>">
+        <title>Group 15 Contacts Manager</title>
 
-		<input type="submit" value="Submit" name="submit_reg">
-	</form>
 
-	<script src="script.js"></script>
-	<link rel="stylesheet" href="style.css">
-</body>
+        <link rel="stylesheet" href="stylesheet.css">
+        <script src="js/script.js" defer></script>
 
+    </head>
+
+    <body class="login-body">
+        <div class="main-banner">
+            <h1>Welcome To</h1>
+            <h2>Contacts Manager</h2>
+            <div class="button-holder">
+                <button class="login" id="login_button">Sign In</button>
+                <button class="register" id="register_button">Register</button>
+            </div>
+        </div>
+
+        <div class="form login invisible" id="login">
+            <form id="login_form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="POST">
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="password" placeholder="Password">
+                <input type="submit" value="Submit" name="submit_login" class="submit">
+            </form>
+        </div>
+
+        <div class="form register invisible" id="register">
+            <form id="register_form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method = "POST">
+                <input type="text" name="username" placeholder="Username">
+
+                <input type="password" name="password" placeholder="Password" onkeyup="ShowPassTheSame()">
+                <input type="password" name="confirmPass" placeholder="Confirm Pass" onkeyup="ShowPassTheSame()">
+                
+                <label id="passTheSame" name="passTheSame" style="display:none;">Passwords must be the same</label>
+
+                <input type="submit" value="Submit" name="submit_reg" class="submit">
+            </form>
+        </div>
+    </body>
 </html>
