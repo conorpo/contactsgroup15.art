@@ -99,6 +99,10 @@ body {
     color: #cccccc;
 }
 
+.dashboard-title > span {
+    color: var(--main-color);
+}
+
 .dashboard-body {
     margin: 10vh 10vw;
 }
@@ -108,41 +112,62 @@ body {
     max-width:100%;
     min-height:80vh;
     padding: 10px;
-    background-color: rgb(12, 153, 19);
+    background-color: #ffd0b6;
     } 
 
-.contactBox{
+.addContactBox{
     border: 1px solid black;
     max-width:100%;
-    min-height:80vh;
+    min-height:13vh;
     padding: 10px;
-    background-color: rgb(12, 153, 19);
+    background-color: #ffd0b6;
     } 
 
-.box{
-    border: 1px solid black;
-    height: 130px;
-    /* border: 1px solid black; */
-    max-width:100%;
-    min-width:100%;
-    margin: 0;
-    padding: 0;
-    /* display: inline-block; */
-    background-color: rgb(46, 197, 53);
-    /* white-space: nowrap;  */
-    font-size: 0px;
-    } 
 
 .flex-parent {
     display: flex;
     flex-direction: row;
-    border: 1px solid black;
-    min-height: 60px;
-    background-color: rgb(42, 214, 42);
+    padding: 10px;
+    min-height: 20px;
+    border-radius: 5px;
+    background-color: var(--main-color);
+    align-items: center;
+}
+
+.labels {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.labels > .flex-child {
+    height: 5px;
 }
 
 .flex-child {
-    flex-grow: 4;
+    flex: 3;
+    height: 40px;
+    border: none;
+    margin: 5px;
+    padding: 0;
+    text-align: center;
+}
+
+.first-name {
+    flex: 1;
+}
+
+.last-name {
+    flex: 1;
+}
+
+.email {
+    flex: 2;
+}
+.phone-number {
+    flex: 1.5;
+}
+.buttons {
+    flex: 1;
 }
 
 .miniBox{

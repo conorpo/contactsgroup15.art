@@ -21,7 +21,7 @@ if(isset($_SESSION["username"])){
 </head>
 <body class="dashboard-body">
         <h1 class="dashboard-title"><?php
-        echo 'Welcome back ' . $username;
+        echo 'Welcome back <span>' . $username . '</span>';
         ?></h1>
 
         <!-- Open a new dialogue to create a new contact -->
@@ -29,32 +29,44 @@ if(isset($_SESSION["username"])){
         <p></p>
 
         <!-- Should be hidden until AddNew() is called -->
-        <div class="contactBox" id="addNewForContactBox">
-            <div class="box" id="addNew"></div>
+        <div class="addContactBox" id="addNewForContactBox">
+            <div class="flex-parent labels" id="addNew">
+                <label class="flex-child first-name">First Name</label>
+                <label class="flex-child last-name">Last Name</label>
+                <label class="flex-child email">Email</label>
+                <label class="flex-child phone-number">Phone Number</label>
+                <div class="flex-child buttons"></div>
+            </div>
+            <br>
+            <div class="flex-parent" id="">
+                <input class="flex-child first-name" name="InputFirstNameContact1">
+                <input class="flex-child last-name" name="InputLastNameContact1">
+                <input class="flex-child email" name="InputEmailContact1">
+                <input class="flex-child phone-number" name="InputPhoneNumberContact1">
+                <div class="flex-child buttons">
+                    <button id="EditContact1" onclick="EditContact(1)">Edit</button>
+                    <!-- Hidden Button -->
+                    <button id="SaveContact1" onclick="SaveContact(1)">Save</button>
+                    <button onclick="DeleteContact(1)">Delete</button>
+                </div>
+            </div>
         </div>
         <br>
 
         <div class="contactBox" id="ContactBox">
+            <div class="flex-parent labels">
+                <label class="flex-child first-name">First Name</label>
+                <label class="flex-child last-name">Last Name</label>
+                <label class="flex-child email">Email</label>
+                <label class="flex-child phone-number">Phone Number</label>
+                <div class="flex-child buttons"></div>
+            </div>
             <div class="flex-parent" id="<?php echo "" . $contact[i]; ?>">
-                <div class="flex-child">
-                    <label>First Name</label>
-                    <!-- Input names should be hidden until editContact is clicked -->
-                    <input id="InputFirstNameContact1" name="InputFirstNameContact1" value="<?php echo "" . $firstName[i]; ?>">
-                    <!-- Also, labels should not be visible at the same time as inputs -->
-                </div>
-                <div class="flex-child">
-                    <label>Last Name</label>
-                    <input id="InputLastNameContact1" name="InputLastNameContact1" value="<?php echo "" . $lastName[i]; ?>">
-                </div>
-                <div class="flex-child">
-                    <label>Email</label>
-                    <input id="InputEmailContact1" name="InputEmailContact1" value="<?php echo "" . $email[i]; ?>">
-                </div>
-                <div class="flex-child">
-                    <label>Phone Number</label>
-                    <input id="InputPhoneNumberContact1" name="InputPhoneNumberContact1" value="<?php echo "" . $phoneNumber[i]; ?>">
-                </div>
-                <div class="flex-child" id="EditContact1">
+                <input class="flex-child first-name" name="InputFirstNameContact1" value="<?php echo "" . $firstName[i]; ?>">
+                <input class="flex-child last-name" name="InputLastNameContact1" value="<?php echo "" . $lastName[i]; ?>">
+                <input class="flex-child email" name="InputEmailContact1" value="<?php echo "" . $email[i]; ?>">
+                <input class="flex-child phone-number" name="InputPhoneNumberContact1" value="<?php echo "" . $phoneNumber[i]; ?>">
+                <div class="flex-child buttons" id="EditContact1">
                     <button id="EditContact1" onclick="EditContact(1)">Edit</button>
                     <!-- Hidden Button -->
                     <button id="SaveContact1" onclick="SaveContact(1)">Save</button>
