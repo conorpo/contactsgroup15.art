@@ -20,6 +20,7 @@ if(isset($_SESSION["username"])){
     <title>Group 15 Contacts Manager</title>
 </head>
 <body class="dashboard-body">
+        <!-- Welcome message -->
         <h1 class="dashboard-title"><?php
         echo 'Welcome back <span>' . $username . '</span>';
         ?></h1>
