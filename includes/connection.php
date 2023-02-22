@@ -1,3 +1,4 @@
+
 <?php 
 class connection {
     protected static $_instance = null;

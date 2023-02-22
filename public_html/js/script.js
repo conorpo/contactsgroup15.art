@@ -2,6 +2,7 @@ const loginBox = document.getElementById("login");
 const registerBox = document.getElementById("register");
 
 
+document.getElementById("main_banner").classList.add("main-banner-active");
 document.getElementById("login_button").addEventListener("click",(evt) => {
   ShowForm(loginBox);
 })

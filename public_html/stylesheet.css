@@ -6,6 +6,7 @@
 
 body {
     background-image: url("assets/background.jpg");
+    background-size: cover;
     background-color: #cccccc;
     font-family: 'Rubik', sans-serif;
 }
@@ -14,13 +15,23 @@ body {
 
 .login-body {
     padding: 20vh 30vw;
+    overflow-y: none;
 }
 
 .main-banner {
     font-weight: 500;
+    position: absolute;
+    left: 30vw;
+    width: 40vw;
+    top: 100vh;
+    transition: 1.5s cubic-bezier(0.22, 1, 0.36, 1);
     text-align: center;
     filter: drop-shadow(1px 1px 2px var(--main-color));
     color: var(--main-color);
+}
+
+.main-banner-active {
+    top: 20vh;
 }
 
 .button-holder {

@@ -23,7 +23,15 @@
 			if (!mysqli_query($conn, "INSERT INTO Users (username, hash) VALUES ('$username','$hash')"))
 				return 'Error: ' . mysqli_error($conn);
 
-			$_SESSION['username'] = $username;
+			$result = mysqli_query($conn, "SELECT * FROM Users ORDER BY UserId DESC LIMIT 1");
+			if (!$result)
+				return 'Error: ' . mysqli_error($conn);
+			$user = mysqli_fetch_all($result, MYSQLI_ASSOC);
+			if (empty($user))
+				return "Error";
+
+			$_SESSION['username'] = $user[0]['username'];
+			$_SESSION['userId'] = $user[0]["userId"];
 			header('Location: /dashboard.php');
 		}
 
@@ -41,7 +49,8 @@
 			if (!password_verify($password, $user[0]['hash']))
 				return "Incorrect Password";
 			
-			$_SESSION['username'] = $username;
+			$_SESSION['username'] = $user[0]['username'];
+			$_SESSION['userId'] = $user[0]['userId'];
 			header('Location: /dashboard.php');
 		}
 
@@ -74,7 +83,7 @@
     </head>
 
     <body class="login-body">
-        <div class="main-banner">
+        <div class="main-banner" id="main_banner">
             <h1>Welcome To</h1>
             <h2>Contacts Manager</h2>
             <div class="button-holder">
