@@ -29,6 +29,8 @@ if(isset($_SESSION["username"])){
         <button id="AddNew" onclick="AddNew()">Add New</button>
         <p></p>
 
+        <a href="/logout.php">Logout</a>
+
         <!-- Should be hidden until AddNew() is called -->
         <div class="addContactBox" id="addNewForContactBox">
             <div class="flex-parent labels" id="addNew">
@@ -76,6 +78,5 @@ if(isset($_SESSION["username"])){
             </div>
         </div>
 
-        <a href="/logout.php">Logout</a>
 </body>
 </html>
