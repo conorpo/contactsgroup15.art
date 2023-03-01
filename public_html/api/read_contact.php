@@ -20,8 +20,8 @@ if(!is_object($data)){
     ]));
 }
 
-if(strcmp($_SESSION["userId"],$data->UserId) == 0){
-    $query = "SELECT * FROM Contacts WHERE userId = " . $data->UserId;
+if(strcmp($_SESSION["userId"],$data->userId) == 0){
+    $query = "SELECT * FROM Contacts WHERE userId = " . $data->userId;
     foreach($data as $key => $val){
         if(strcmp($key,'userId') != 0){
             $query .= " AND " . $key . " LIKE '%" . $val . "%'";
