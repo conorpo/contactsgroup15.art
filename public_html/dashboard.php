@@ -1,4 +1,4 @@
-<?php include '../includes/contacts.php'   ?>
+<?php include '../includes/connection.php'   ?>
 <?php session_start(); ?>
 
 <?php 
@@ -8,14 +8,6 @@ if(isset($_SESSION["username"])){
 } else {
     header('Location: /index.php');
 }
-
-//Check if search operation has beeen made, otherwise request all contacts
-$conditions = array();
-if(isset($_GET["submit"])){
-
-}
-
-$contacts = searchContacts($conditions);
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +19,7 @@ $contacts = searchContacts($conditions);
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📞</text></svg>">
     <title>Group 15 Contacts Manager</title>
-    <script src="js/contacts.js" defer></script>
+    <script src="js/dashboard.js" defer></script>
 </head>
 <body class="dashboard-body">
 
@@ -42,6 +34,7 @@ $contacts = searchContacts($conditions);
 
         <a href="/logout.php">Logout</a>
 
+
         <!-- Should be hidden until AddNew() is called -->
         <div class="addContactBox" id="addNewForContactBox">
             <div class="flex-parent labels" id="addNew">
@@ -53,10 +46,10 @@ $contacts = searchContacts($conditions);
             </div>
             <br>
             <div class="flex-parent" id="">
-                <input class="flex-child first-name" name="InputFirstNameContact1">
-                <input class="flex-child last-name" name="InputLastNameContact1">
-                <input class="flex-child email" name="InputEmailContact1">
-                <input class="flex-child phone-number" name="InputPhoneNumberContact1">
+                <input class="flex-child first-name" id="InputFirstNameContact">
+                <input class="flex-child last-name" id="InputLastNameContact">
+                <input class="flex-child email" id="InputEmailContact">
+                <input class="flex-child phone-number" id="InputPhoneNumberContact">
                 <div class="flex-child buttons">
                     <button id="EditContact1" onclick="EditContact(1)">Edit</button>
                     <!-- Hidden Button -->
@@ -75,22 +68,21 @@ $contacts = searchContacts($conditions);
                 <label class="flex-child phone-number">Phone Number</label>
                 <div class="flex-child buttons"></div>
             </div>
-            <?php for($i = 0; $i < count($contacts); $i++){ 
-                $contact = $contacts[$i];?>
-                <div class="flex-parent" id="<?php echo "" . $contact["userId"]; ?>">
-                    <input class="flex-child first-name" name="InputFirstNameContact1" value="<?php echo "" . $contact["firstName"]; ?>">
-                    <input class="flex-child last-name" name="InputLastNameContact1" value="<?php echo "" . $contact["lastName"]; ?>">
-                    <input class="flex-child email" name="InputEmailContact1" value="<?php echo "" . $contact["email"]; ?>">
-                    <input class="flex-child phone-number" name="InputPhoneNumberContact1" value="<?php echo "" . $contact["phone"]; ?>">
-                    <div class="flex-child buttons" id="EditContact1">
-                        <button id="EditContact1" onclick="EditContact(1)">Edit</button>
-                        <!-- Hidden Button -->
-                        <button id="SaveContact1" onclick="SaveContact(1)">Save</button>
-                        <button onclick="DeleteContact(1)">Delete</button>
-                    </div>
-                </div>
-            <?php } ?>
+            <ul class="list-group" id="ContactList">
+                
+            </ul>
         </div>
 
 </body>
+
+<li class="list-group-item flex-parent invisible" id="ContactTemplate">
+    <input class="flex-child first-name">
+    <input class="flex-child last-name">
+    <input class="flex-child email">
+    <input class="flex-child phone-number">
+    <div class="flex-child buttons">
+        <button>Save</button>
+        <button>Delete</button>
+    </div>
+</li>
 </html>

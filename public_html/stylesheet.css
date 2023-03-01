@@ -11,6 +11,12 @@ body {
     font-family: 'Rubik', sans-serif;
 }
 
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+
 /* Login */
 
 .login-body {
@@ -95,11 +101,6 @@ body {
     cursor: pointer;
 }
 
-.invisible {
-    display: none;
-    transform: scale(2);
-}
-
 
 
 /* Dashboard */
@@ -154,6 +155,7 @@ body {
     height: 5px;
 }
 
+
 .flex-child {
     flex: 3;
     height: 40px;
@@ -161,6 +163,14 @@ body {
     margin: 5px;
     padding: 0;
     text-align: center;
+}
+
+.list-group-item > input {
+    background-color: var(--main-color);
+}
+
+.list-group-item > input:focus{
+    background-color: white;
 }
 
 .first-name {
@@ -191,3 +201,21 @@ body {
     word-wrap: break-word;
     font-size: 16px;
 }
+
+/* .list-group {
+
+}
+
+.list-group-item {
+
+} */​
+
+.active {
+    /* Visible on page */
+    content-visibility: visible;
+}
+
+.invisible {
+    display: none;
+}
+
