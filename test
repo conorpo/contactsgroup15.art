@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap');
+
+:root {
+    --main-color: #ff9355;
+}
+
+body {
+    background-image: url("assets/background.jpg");
+    background-size: cover;
+    background-color: #cccccc;
+    font-family: 'Rubik', sans-serif;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+
+/* Login */
+
+.login-body {
+    padding: 20vh 30vw;
+    overflow-y: none;
+}
+
+.main-banner {
+    font-weight: 500;
+    position: absolute;
+    left: 30vw;
+    width: 40vw;
+    top: 100vh;
+    transition: 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+    text-align: center;
+    filter: drop-shadow(1px 1px 2px var(--main-color));
+    color: var(--main-color);
+}
+
+.main-banner-active {
+    top: 20vh;
+}
+
+.button-holder {
+    display: flex;
+    width: 20vw;
+    margin-left: 10vw;
+}
+
+.button-holder > button {
+    width: 10vw;
+    height: 3vh;
+    background-color: var(--main-color);
+    margin: 1vh 0.2vw;
+    border: none;
+    border-radius: 2px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.button-holder > button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    font-weight: 300;
+}
+
+.form {
+    display: block;
+    position: absolute;
+    top:40vh;
+    transition: 1s;
+    
+    width: 40vw;
+    opacity: 0.95;
+    background-color: rgba(255, 160, 105, 0.5);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.form > form {
+    font-family: 'Rubik', sans-serif;
+    display: flex;
+}
+
+.form > form > input {
+    background-color: #ffffff;
+    box-sizing: border-box;
+    border-radius: 3px;
+    border: none;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    flex-grow: 1;
+    height: 4vh;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+.form > form > .submit {
+    font-weight: 500;
+    box-shadow: 3px 3px  5px var(--main-color);
+    cursor: pointer;
+}

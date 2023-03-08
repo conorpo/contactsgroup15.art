@@ -152,21 +152,18 @@ ul {
 }
 
 .labels > .flex-child {
-    height: 5px;
+
+    font-size: 1.3vw;
+    text-align: left;
 }
 
-
-.flex-child {
-    flex: 3;
-    height: 40px;
-    border: none;
-    margin: 5px;
-    padding: 0;
-    text-align: center;
+.list-group-item {
+    margin-bottom: 5px;
 }
 
 .list-group-item > input {
     background-color: var(--main-color);
+    text-align: left;
 }
 
 .list-group-item > input:focus{
@@ -174,21 +171,21 @@ ul {
 }
 
 .first-name {
-    flex: 1;
+    flex: 1 1;
 }
 
 .last-name {
-    flex: 1;
+    flex: 1 1;
 }
 
 .email {
-    flex: 2;
+    flex: 2 2;
 }
 .phone-number {
-    flex: 1.5;
+    flex: 1.5 1.5;
 }
 .buttons {
-    flex: 1;
+    flex: 1 1;
 }
 
 .miniBox{
@@ -219,3 +216,31 @@ ul {
     display: none;
 }
 
+.search{
+    border: 1px solid black;
+    max-width:100%;
+    min-height:13vh;
+    padding: 10px;
+    background-color: #ffd0b6;
+}
+
+form{
+    background: #fff;
+    width: 600px;
+    height: 55px;
+    display:flex;
+}
+form input{
+    flex: 1;
+    border: none;
+    outline: none;
+}
+form button{
+    background: tomato;
+    padding: 10px 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+}

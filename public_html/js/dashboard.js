@@ -5,6 +5,7 @@ let contactsTopIndex = 0;
 function AddNew(firstName, lastName, email, phone, id=99) {
     // Get Elements by id of the form inputs
     const parent = document.getElementById("ContactList");
+    const inputElement = document.getElementById("InputElement");
 
     // Take the data already entered and add a new box on the front-end
     firstName = firstName || document.getElementById("InputFirstNameContact").value;
@@ -15,7 +16,7 @@ function AddNew(firstName, lastName, email, phone, id=99) {
     // Save those new details into a new contact box
     const newContact = document.getElementById("ContactTemplate").cloneNode(deep=true);
 
-    // newContact.id = id;
+    newContact.id = id;
 
     newContact.classList.remove("invisible");
     newContact.children[0].value = firstName;
@@ -26,31 +27,22 @@ function AddNew(firstName, lastName, email, phone, id=99) {
     //Add Event Listeners
     newContact.children[4].children[0].addEventListener("click", (evt) => {
         //Save Function
+        SaveContact(newContact, id);
     })
     newContact.children[4].children[1].addEventListener("click", (evt) => {
         //Delete Function
+        DeleteContact(id);
     })
     
-    parent.appendChild(newContact);
-    // Format should be in:
-    // <li class="list-group-item flex-parent invisible" id="ContactTemplate">
-    //   0  <input class="flex-child first-name"> 
-    //   1  <input class="flex-child last-name">
-    //   2  <input class="flex-child email">
-    //   3  <input class="flex-child phone-number">
-    //   4  <div class="flex-child buttons">
-    //        0 <button>Save</button>
-    //        1 <button>Delete</button>
-    //     </div>
-    // </li>
-    
+    parent.insertBefore(newContact, inputElement);
+
+
+    document.getElementById("InputFirstNameContact").value = ""; 
+    document.getElementById("InputLastNameContact").value = ""; 
+    document.getElementById("InputEmailContact").value = ""; 
+    document.getElementById("InputPhoneNumberContact").value = ""; 
 }
 
-
-// Log out
-function LogOut() {
-
-}
 
 // Edit current contact info
 function EditContact(index) {
@@ -74,31 +66,68 @@ function EditContact(index) {
 
 }
 
-function SaveContact(index) {
+function SaveContact(contactElement, contactId) {
     // Save the contact at the current index
-    
+    console.log(contactElement, contactId)
     // Hide the save button
     // Show the edit button
 }
 
 // Delete current contact info
-function DeleteContact(index) {
+function DeleteContact(contactId) {
     // 
     // Remove the API stuff
+    const url = "api/delete_contact.php";
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            userId,
+            contactId
+        })
+    }).then(res => res.json())
+    .then(res => {
+        if(res.value == 0){
+            return alert(res.error);
+        }
+        
+        document.getElementById(""+contactId).remove()
+    });
 
 }
 
 
 function SearchContacts(){
     //Get All Values from search queries, temp for now
-    
-    contacts = [];
-    
-    for(const contact of contacts){
-        AddNew(contact.firstName, contact.lastName, contact.email, contact.phone, contact.userId);
-    }
-}
+    const url = "/api/read_contact.php";
 
-function ShowAddBox() {
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            firstName: null || "",
+            lastName: null || "",
+            phone: null || "",
+            email: null || "",
+            userId
+        })
+    })
+    .then(res => res.json())
+    .then(res => {
+        if(res.value == 0){
+            return alert(res.error);
+        }
 
+        for(const contact of res.data){
+            AddNew(contact.firstName, contact.lastName, contact.email, contact.phone, contact.contactId);
+        }
+    });
 }
+SearchContacts();

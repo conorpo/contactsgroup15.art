@@ -27,10 +27,16 @@ if(strcmp($_SESSION["userId"],$data->userId) == 0){
             $query .= " AND " . $key . " LIKE '%" . $val . "%'";
         }
     }
+    $query .= ";";
+    
     $result = mysqli_query($conn, $query);
 
     if(!$result){
-       echo mysqli_error($conn);
+        die(json_encode([
+            'value' => 0,
+            'error' => mysqli_error($conn),
+            'data' => null,
+        ]));
     }
     
     $contacts = mysqli_fetch_all($result, MYSQLI_ASSOC);

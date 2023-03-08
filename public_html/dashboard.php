@@ -19,6 +19,9 @@ if(isset($_SESSION["username"])){
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📞</text></svg>">
     <title>Group 15 Contacts Manager</title>
+    <script>
+        const userId = <?php echo $userId ?>;
+    </script>
     <script src="js/dashboard.js" defer></script>
 </head>
 <body class="dashboard-body">
@@ -28,15 +31,19 @@ if(isset($_SESSION["username"])){
             echo 'Welcome back <span>' . $username . '</span>';
         ?></h1>
 
-        <!-- Open a new dialogue to create a new contact -->
-        <button id="AddNew" onclick="AddNew()">Add New</button>
-        <p></p>
-
         <a href="/logout.php">Logout</a>
-
+        
+        <div class = "search" id="">
+            <div class = "flex-parent" id="">
+                <form>
+                    <input type = "text" placeholder= "Search Contact...">
+                    <button type = "submit" onclick="SearchContacts()"> Search</button>
+                </form>
+            </div>
+        </div>
 
         <!-- Should be hidden until AddNew() is called -->
-        <div class="addContactBox" id="addNewForContactBox">
+        <!-- <div class="addContactBox" id="addNewForContactBox">
             <div class="flex-parent labels" id="addNew">
                 <label class="flex-child first-name">First Name</label>
                 <label class="flex-child last-name">Last Name</label>
@@ -46,18 +53,18 @@ if(isset($_SESSION["username"])){
             </div>
             <br>
             <div class="flex-parent" id="">
-                <input class="flex-child first-name" id="InputFirstNameContact">
+                <input class="flex-child first-name" id="InputFirstNameContact" name="InputFirstNameContact">
                 <input class="flex-child last-name" id="InputLastNameContact">
                 <input class="flex-child email" id="InputEmailContact">
                 <input class="flex-child phone-number" id="InputPhoneNumberContact">
                 <div class="flex-child buttons">
                     <button id="EditContact1" onclick="EditContact(1)">Edit</button>
-                    <!-- Hidden Button -->
-                    <button id="SaveContact1" onclick="SaveContact(1)">Save</button>
+                    
+                    <button id="SaveContact1" onclick="AddNew()">Save</button>
                     <button onclick="DeleteContact(1)">Delete</button>
                 </div>
             </div>
-        </div>
+        </div> -->
         <br>
 
         <div class="contactBox" id="ContactBox">
@@ -68,18 +75,26 @@ if(isset($_SESSION["username"])){
                 <label class="flex-child phone-number">Phone Number</label>
                 <div class="flex-child buttons"></div>
             </div>
-            <ul class="list-group" id="ContactList">
-                
+            <ul class="list-group" id="ContactList" name="ContactList">
+                <div class="list-group-item flex-parent" id="InputElement">
+                    <input class="flex-child first-name" id="InputFirstNameContact">
+                    <input class="flex-child last-name" id="InputLastNameContact">
+                    <input class="flex-child email" id="InputEmailContact">
+                    <input class="flex-child phone-number" id="InputPhoneNumberContact">
+                    <div class="flex-child buttons">
+                        <button id="SaveContact1" onclick="AddNew()">Add</button>
+                    </div>
+                </div>
             </ul>
         </div>
 
 </body>
 
 <li class="list-group-item flex-parent invisible" id="ContactTemplate">
-    <input class="flex-child first-name">
-    <input class="flex-child last-name">
-    <input class="flex-child email">
-    <input class="flex-child phone-number">
+    <input type="text" class="flex-child first-name">
+    <input type="text" class="flex-child last-name">
+    <input type="text" class="flex-child email">
+    <input type="text" class="flex-child phone-number">
     <div class="flex-child buttons">
         <button>Save</button>
         <button>Delete</button>
