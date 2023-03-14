@@ -62,10 +62,27 @@ if(strcmp($_SESSION["userId"],$data->userId) == 0){
         ]));
     }
 
+    $result = mysqli_query($conn, "SELECT * FROM Contacts WHERE UserId = $userId ORDER BY contactId DESC LIMIT 1");
+    if(!$result){
+        die(json_encode([
+            'value' => 0,
+            'error' => mysqli_error($conn),
+            'data' => null,
+        ]));
+    }
+    $contact = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    if(empty($contact)){
+        die(json_encode([
+            'value' => 0,
+            'error' => "User Empty for some reason",
+            'data' => null,
+        ]));
+    }
+
     die(json_encode([
         'value' => 1,
         'error' => null,
-        'data' => null,
+        'data' => $contact[0]["contactId"],
     ]));
 }
 

@@ -94,8 +94,8 @@
 
         <div class="form login invisible" id="login">
             <form id="login_form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="POST">
-                <input type="text" name="username" placeholder="Username">
-                <input type="password" name="password" placeholder="Password">
+                <input type="text" name="username" placeholder="Username" class="input">
+                <input type="password" name="password" placeholder="Password" class="input">
                 <input type="submit" value="Submit" name="submit_login" class="submit">
             </form>
         </div>
