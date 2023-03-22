@@ -24,7 +24,7 @@ if(strcmp($_SESSION["userId"],$data->userId) == 0){
     $query = "SELECT * FROM Contacts WHERE userId = " . $data->userId;
     foreach($data as $key => $val){
         if(strcmp($key,'userId') != 0){
-            $query .= " AND " . $key . " LIKE '%" . $val . "%'";
+            $query .= " AND " . $key . " LIKE '%" . trim(filter_var($val,FILTER_SANITIZE_ADD_SLASHES)) . "%'";
         }
     }
     $query .= ";";

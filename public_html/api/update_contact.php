@@ -20,8 +20,8 @@ if(!is_object($data)){
 }
 
 if(strcmp($_SESSION["userId"],$data->userId) == 0){
-    $firstName = trim(filter_var($data->firstName, FILTER_SANITIZE_SPECIAL_CHARS));
-    $lastName = trim(filter_var($data->lastName, FILTER_SANITIZE_SPECIAL_CHARS));
+    $firstName = trim(filter_var($data->firstName, FILTER_SANITIZE_ADD_SLASHES));
+    $lastName = trim(filter_var($data->lastName, FILTER_SANITIZE_ADD_SLASHES));
     $phone = trim(filter_var($data->phone, FILTER_SANITIZE_NUMBER_INT));
     $email = trim(filter_var($data->email, FILTER_SANITIZE_EMAIL));
     $userId = trim(filter_var($data->userId, FILTER_SANITIZE_NUMBER_INT));

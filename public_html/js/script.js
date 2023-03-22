@@ -20,14 +20,12 @@ function ShowForm(ele) {
 }
 
 function ShowPassTheSame() {
-  var T = document.getElementById("passTheSame");
-
-  if ( document.getElementById("passReg").value !=
-    document.getElementById("confirmReg").value) {
-    T.style.display = "block";
+  if ( document.getElementById("passReg").value != document.getElementById("confirmReg").value) {
+    console.log(document.getElementById("submitReg"));
+    document.getElementById("submitReg").value = "pwd must match";
     document.getElementById("submitReg").disabled = true;
   } else {
-    T.style.display = "none";
+    document.getElementById("submitReg").value = "Submit";
     document.getElementById("submitReg").disabled = false;
   }
 }

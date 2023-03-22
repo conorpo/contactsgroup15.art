@@ -20,8 +20,8 @@ if(!is_object($data)){
 }
 
 if(strcmp($_SESSION["userId"],$data->userId) == 0){
-    $firstName = trim(filter_var($data->firstName, FILTER_SANITIZE_SPECIAL_CHARS));
-    $lastName = trim(filter_var($data->lastName, FILTER_SANITIZE_SPECIAL_CHARS));
+    $firstName = trim(filter_var($data->firstName, FILTER_SANITIZE_ADD_SLASHES));
+    $lastName = trim(filter_var($data->lastName, FILTER_SANITIZE_ADD_SLASHES));
     $phone = trim(filter_var($data->phone, FILTER_SANITIZE_NUMBER_INT));
     $email = trim(filter_var($data->email, FILTER_SANITIZE_EMAIL));
     $dateCreated = trim((new DateTime())->format('Y-m-d H:i:s'));
@@ -35,6 +35,13 @@ if(strcmp($_SESSION["userId"],$data->userId) == 0){
         ]));
     }
 
+    if(strlen($firstName) > 64 || strlen($lastName) > 64 || strlen($phone) > 64 || strlen($email) > 64 ){
+        die(json_encode([
+            'value' => 0,
+            'error' => 'All entries must be under 64 characters',
+            'data' => null,
+        ]));
+    }
 
     $query = "INSERT INTO Contacts (
         firstName,

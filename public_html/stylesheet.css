@@ -27,6 +27,7 @@ ul {
 .main-banner {
     font-weight: 500;
     position: absolute;
+    white-space: nowrap;
     left: 30vw;
     width: 40vw;
     top: 100vh;
@@ -37,7 +38,8 @@ ul {
 }
 
 .main-banner-active {
-    top: 20vh;
+    top: 10vh;
+    height: 20vh;
 }
 
 .button-holder {
@@ -55,16 +57,16 @@ ul {
     border-radius: 2px;
     font-family: 'Rubik', sans-serif;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 1.0vw;
 }
 
 .button-holder > button:hover{
     cursor: pointer;
     transform: scale(1.05);
-    font-weight: 300;
 }
 
 .form {
+    box-sizing: border-box;
     display: flex;
     position: absolute;
     top:40vh;
@@ -74,14 +76,13 @@ ul {
     opacity: 0.95;
     background-color: rgba(255, 160, 105, 0.5);
     border-radius: 5px;
-    padding: 20px;
+    padding: 10px;
 }
 
 .form > form {
     font-family: 'Rubik', sans-serif;
     display: flex;
     background-color: rgba(255, 160, 105, 1);
-    min-width: 100%;
     padding-left: 10px;
     align-content: center;
     border-radius: 2px;

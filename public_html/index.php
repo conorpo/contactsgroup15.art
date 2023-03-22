@@ -59,8 +59,6 @@
 			$login_error = register();
 		if (isset($_POST['submit_login']))
 			$login_error = login();
-
-		echo $login_error;
 	}
 ?>
 
@@ -79,13 +77,12 @@
 
         <link rel="stylesheet" href="stylesheet.css">
         <script src="js/script.js" defer></script>
-
     </head>
 
     <body class="login-body">
         <div class="main-banner" id="main_banner">
-            <h1>Welcome To</h1>
-            <h2>Contacts Manager</h2>
+            <h2>Welcome To</h2>
+            <h1>Contacts Manager</h1>
             <div class="button-holder">
                 <button class="login" id="login_button">Sign In</button>
                 <button class="register" id="register_button">Register</button>
@@ -94,23 +91,29 @@
 
         <div class="form login invisible" id="login">
             <form id="login_form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="POST">
-                <input type="text" name="username" placeholder="Username" class="input">
-                <input type="password" name="password" placeholder="Password" class="input">
+                <input type="text" name="username" placeholder="Username" class="input" required>
+                <input type="password" name="password" placeholder="Password" class="input" required>
                 <input type="submit" value="Submit" name="submit_login" class="submit">
             </form>
         </div>
 
         <div class="form register invisible" id="register">
+		
             <form id="register_form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method = "POST">
-                <input type="text" name="username" placeholder="Username">
+                <input type="text" name="username" placeholder="Username" required>
 
-                <input type="password" name="password" placeholder="Password" onkeyup="ShowPassTheSame()">
-                <input type="password" name="confirmPass" placeholder="Confirm Pass" onkeyup="ShowPassTheSame()">
+                <input type="password" id="passReg" name="password" placeholder="Password" onkeyup="ShowPassTheSame()" required>
+                <input type="password" id="confirmReg" name="confirmPass" placeholder="Confirm Pass" onkeyup="ShowPassTheSame()" required>
                 
-                <label id="passTheSame" name="passTheSame" style="display:none;">Passwords must be the same</label>
-
-                <input type="submit" value="Submit" name="submit_reg" class="submit">
+                <input type="submit" value="Submit" name="submit_reg" class="submit" id="submitReg">
             </form>
         </div>
+		<script>
+			<?php
+			if(!empty($login_error)){
+			?>
+				alert(" <?php echo $login_error; ?> ");
+			<?php } ?>
+		</script>
     </body>
 </html>

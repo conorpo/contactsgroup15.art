@@ -19,6 +19,8 @@ function AddNew(firstName, lastName, email, phone, id=-1) {
     newContact.children[1].value = lastName;
     newContact.children[2].value = email;
     newContact.children[3].value = phone;
+
+    if(firstName.trim().length == 0) return alert("Contact must have a First Name");
     
 
     parent.insertBefore(newContact, inputElement);
