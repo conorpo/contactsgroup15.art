@@ -34,8 +34,7 @@ if(strcmp($_SESSION["userId"],$data->userId) == 0){
             'data' => null,
         ]));
     }
-
-
+    
     $query = "INSERT INTO Contacts (
         firstName,
         lastName,

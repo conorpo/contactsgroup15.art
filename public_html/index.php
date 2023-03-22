@@ -1,67 +1,3 @@
-<?php include '../includes/connection.php' ?>
-<?php session_start(); ?>
-
-<?php 
-	if (isset($_SESSION['username'])) {
-		header('Location: /dashboard.php');
-	}
-
-	if (isset($_POST['username'])) {
-		$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
-		$password = $_POST['password'];
-		$result = mysqli_query($conn, "SELECT * FROM Users WHERE username = '" . $username . "'");
-
-		function register()
-		{
-			global $result, $conn, $username, $password;
-			$hash = password_hash($password, PASSWORD_DEFAULT);
-
-			if (!$result)
-				return 'Error: ' . mysqli_error($conn);
-			if (count(mysqli_fetch_all($result)) >= 1)
-				return "Username already exists.";
-			if (!mysqli_query($conn, "INSERT INTO Users (username, hash) VALUES ('$username','$hash')"))
-				return 'Error: ' . mysqli_error($conn);
-
-			$result = mysqli_query($conn, "SELECT * FROM Users ORDER BY UserId DESC LIMIT 1");
-			if (!$result)
-				return 'Error: ' . mysqli_error($conn);
-			$user = mysqli_fetch_all($result, MYSQLI_ASSOC);
-			if (empty($user))
-				return "Error";
-
-			$_SESSION['username'] = $user[0]['username'];
-			$_SESSION['userId'] = $user[0]["userId"];
-			header('Location: /dashboard.php');
-		}
-
-		function login()
-		{
-			global $result, $conn, $username, $password;
-
-			if (!$result)
-				return 'Error: ' . mysqli_error($conn);
-			
-			$user = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-			if (empty($user))
-				return "User doesn't exist";
-			if (!password_verify($password, $user[0]['hash']))
-				return "Incorrect Password";
-			
-			$_SESSION['username'] = $user[0]['username'];
-			$_SESSION['userId'] = $user[0]['userId'];
-			header('Location: /dashboard.php');
-		}
-
-		$login_error;
-		if (isset($_POST['submit_reg']))
-			$login_error = register();
-		if (isset($_POST['submit_login']))
-			$login_error = login();
-	}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,6 +14,70 @@
         <link rel="stylesheet" href="stylesheet.css">
         <script src="js/script.js" defer></script>
     </head>
+
+	<?php include '../includes/connection.php' ?>
+	<?php session_start(); ?>
+
+	<?php 
+		if (isset($_SESSION['username'])) {
+			header('Location: /dashboard.php');
+		}
+
+		if (isset($_POST['username'])) {
+			$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
+			$password = $_POST['password'];
+			$result = mysqli_query($conn, "SELECT * FROM Users WHERE username = '" . $username . "'");
+
+			function register()
+			{
+				global $result, $conn, $username, $password;
+				$hash = password_hash($password, PASSWORD_DEFAULT);
+
+				if (!$result)
+					return 'Error: ' . mysqli_error($conn);
+				if (count(mysqli_fetch_all($result)) >= 1)
+					return "Username already exists.";
+				if (!mysqli_query($conn, "INSERT INTO Users (username, hash) VALUES ('$username','$hash')"))
+					return 'Error: ' . mysqli_error($conn);
+
+				$result = mysqli_query($conn, "SELECT * FROM Users ORDER BY UserId DESC LIMIT 1");
+				if (!$result)
+					return 'Error: ' . mysqli_error($conn);
+				$user = mysqli_fetch_all($result, MYSQLI_ASSOC);
+				if (empty($user))
+					return "Error";
+
+				$_SESSION['username'] = $user[0]['username'];
+				$_SESSION['userId'] = $user[0]["userId"];
+				header('Location: /dashboard.php');
+			}
+
+			function login()
+			{
+				global $result, $conn, $username, $password;
+
+				if (!$result)
+					return 'Error: ' . mysqli_error($conn);
+				
+				$user = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+				if (empty($user))
+					return "User doesn't exist";
+				if (!password_verify($password, $user[0]['hash']))
+					return "Incorrect Password";
+				
+				$_SESSION['username'] = $user[0]['username'];
+				$_SESSION['userId'] = $user[0]['userId'];
+				header('Location: /dashboard.php');
+			}
+
+			$login_error;
+			if (isset($_POST['submit_reg']))
+				$login_error = register();
+			if (isset($_POST['submit_login']))
+				$login_error = login();
+		}
+	?>
 
     <body class="login-body">
         <div class="main-banner" id="main_banner">
