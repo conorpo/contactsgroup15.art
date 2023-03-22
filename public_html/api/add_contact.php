@@ -35,6 +35,14 @@ if(strcmp($_SESSION["userId"],$data->userId) == 0){
         ]));
     }
 
+    if(strlen($firstName) > 64 || strlen($lastName) > 64|| strlen($phone) > 64 || strlen($email) > 64){
+	die(json_encode([
+	    'value' => 0,
+	    'error' => 'All fields must be 64 characters or less',
+	    'data' => null,
+	]));
+ }
+
 
     $query = "INSERT INTO Contacts (
         firstName,
