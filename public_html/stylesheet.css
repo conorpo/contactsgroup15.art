@@ -330,4 +330,5 @@ form button{
     letter-spacing: 1px;
     cursor: pointer;
     align-self: auto;
+    margin: 0 4px 0 0;
 }
