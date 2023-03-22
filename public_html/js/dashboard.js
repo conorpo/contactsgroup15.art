@@ -144,6 +144,14 @@ function DeleteContact(contactElement, contactId) {
 }
 
 
+function ClearSearch(){
+	document.getElementById("firstNameSearch").value = "";
+	document.getElementById("lastNameSearch").value = "";
+	document.getElementById("phoneSearch").value = "";
+	document.getElementById("emailSearch").value = "";
+}
+
+
 function SearchContacts(){
 //Get All Values from search queries, temp for now
     const url = "/api/read_contact.php";

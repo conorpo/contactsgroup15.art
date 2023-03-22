@@ -44,6 +44,7 @@ if(isset($_SESSION["username"])){
                         <input id="emailSearch" type="text" class="email" placeholder="Email">
                         <input id="phoneSearch" type="text" class=" phone-number" placeholder="Phone Number">
                         <button type = "button" onclick="SearchContacts()"> Search</button>
+				    <button type = "button" onclick="ClearSearch()"> Clear</button>
                     </form>
             </div>
             </div>

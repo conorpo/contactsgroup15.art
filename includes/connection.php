@@ -9,9 +9,9 @@ class connection {
     return self::$_instance; 
     }
     public function getconnection(){
-        $dbhost = (getenv("DBHOST")  ? getenv("DBHOST") : "localhost");
+        $dbhost = (getenv("DBHOST")  ? getenv("DBHOST") : "contactsgroup15.art");
         $dbuser = (getenv("DBUSER")  ? getenv("DBUSER") : "main");
-        $dbpass = (getenv("DBPASS")  ? getenv("DBPASS") : "");
+        $dbpass = (getenv("DBPASS")  ? getenv("DBPASS") : "cop4331");
         $dbname = (getenv("DBNAME")  ? getenv("DBNAME") : "prod");
         $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname); 
 
